@@ -1,0 +1,44 @@
+<%- include('./header.ejs') %>
+<section class="banner">
+    <div class="banner-box">
+        <!-- <div class="intro-text">
+            <div class="intro-text-box">
+                <h1>Movie Blogs by KY</h1>
+                <p>KY Blogs is the world's most popular and authoritative source for movie, TV and celebrity content. Find ratings and reviews for the newest movie and TV shows.</p>
+            </div>
+        </div> -->
+        <img src="https://img.freepik.com/free-vector/cinema-movie-film-festival-poster-design-background_1017-31194.jpg?w=1380&t=st=1676481267~exp=1676481867~hmac=3474cf4deb8fe627e9cc4d1390b31cad4981644e739b347b87e4b68317a62bdc" style="height: 611px !important;" alt="banner" />
+    </div>
+</section>
+<section class="featured-blog mtb-40">
+    <div class="container">
+        <div class="row">
+            <% d.forEach((item)=>{ %>
+                <div class="col-md-4">
+                    <div class="blog-box" >
+                        <img src="<%= item.image.url %>" width="400" height="400" alt="blog1" />
+                         
+                        <h3><%= item.title %></h3>
+                        <p>by <span>KY Blogs</span> on <span>October 22, 2018</span></p>
+                        <p><%= item.description.slice(0,105) %></p>
+                        <a href="/detail/<%= item._id %>" class="btn btn-danger">Read more...</a>
+                    </div>
+    
+                </div>
+            <% }) %>
+            
+                         
+        </div>
+    </div>
+</section>
+<%- include('./footer.ejs') %>
+
+
+
+
+
+
+
+
+
+

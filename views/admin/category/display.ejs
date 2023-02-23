@@ -1,0 +1,87 @@
+<%- include('../../header.ejs') %>
+
+<section class="dashboard-wrap mtb-40">
+    <div class="container">
+        <div class="body-content">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="dash-left">
+                        <ul>
+                            <li class="active"><a href="/admin/dashboard" class="active">Dashboard</a></li>
+                            <li><a href="/admin/blog/display">Blogs</a></li>
+                            <li><a href="/admin/categorydisplay">Categories</a></li>
+                            <li><a href="/admin/contactdisplay">Contact</a></li>
+                            <li><a href="/admin/aboutdisplay">About</a></li>
+                           
+                            <li><a href="/logout">Logout</a></li>
+                        </ul>
+                    </div>   
+                </div>
+                <div class="col-md-9">
+                        <div class="dash-right">
+                            <div class="dash-header">
+                                <div class="dash-title">
+                                    <h1>Category</h1>
+                                </div>
+                                <div class="dash-nav">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#aa">
+                                        Add Category
+                                    </button>
+                                </div>
+                            </div>
+                                <table class="table table-bordered table-striped">
+                                    <tr>
+                                        <th>#ID</th>
+                                        <th>Title</th>
+                                        <th>Image</th>
+                                        <th>Action</th>    
+                                    </tr>
+                                    <% d.forEach((item)=>{ %>
+                                        <tr>
+                                            <td><%= item._id %></td>
+                                            <td><%= item.title %></td>
+                                            <td><img src="<%= item.image.url %>" width="50px"></td>
+                                            <td>
+                                                <a href="/categoryview/<%= item._id %>" class="btn btn-info">View</a>
+                                                <a href="/categoryedit/<%= item._id %>" class="btn btn-warning">Edit</a>
+                                                <a href="/categorydelete/<%= item._id %>" class="btn btn-danger">Delete</a>
+                                            </td>
+                                        </tr>
+                                    <% }) %>
+                                    
+                                
+                                </table>
+                        </div>
+                </div>   
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="aa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add Category</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form method="post" action="/categoryinsert" enctype='multipart/form-data'>
+                <div class="mb-3">
+                    <label>Title</label>
+                    <input type="text" name="title" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label>Image</label>
+                    <input type="file" name="image">
+                </div>
+                
+                <button type="submit" class="btn btn-info">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
+</section>
+
+<%- include('../../footer.ejs') %>

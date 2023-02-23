@@ -1,0 +1,52 @@
+<%- include('../../header.ejs') %>
+
+<section class="dashboard-wrap mtb-40">
+    <div class="container">
+        <div class="body-content">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="dash-left">
+                        <ul>
+                            <li class="active"><a href="/admin/dashboard" class="active">Dashboard</a></li>
+                            <li><a href="/admin/blog/display">Blogs</a></li>
+                            <li><a href="/admin/categorydisplay">Categories</a></li>
+                            <li><a href="/admin/contactdisplay">Contact</a></li>
+                            <li><a href="/admin/about">About</a></li>
+                           
+                            <li><a href="/logout">Logout</a></li>
+                        </ul>
+                    </div>   
+                </div>
+                <div class="col-md-9">
+                        <div class="dash-right">
+                            <div class="dash-header">
+                                <div class="dash-title">
+                                    <h1>Edit</h1>
+                                </div>
+                                
+                            </div>
+                            <div class="modal-body">
+                                <form method="post" action="/contactupdate/<%= edit._id %>">
+                                  <div class="mb-3">
+                                      <label>Name</label>
+                                      <input type="text" name="name" class="form-control" value="<%= edit.name %>">
+                                      <label>Email</label>
+                                      <input type="email" name="email" class="form-control" value="<%= edit.email %>">
+                                      <label>Phone Number</label>
+                                      <input type="number" name="phone" class="form-control" value="<%= edit.phone %>">
+                                      <label>Message</label>
+                                      <textarea class="form-control" name="message"><%= edit.message %></textarea>
+                                  </div>
+                                  
+                                  <button type="submit" class="btn btn-info">Submit</button>
+                                </form>
+                        </div>
+                </div>   
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+<%- include('../../footer.ejs') %>
+

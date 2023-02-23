@@ -1,0 +1,22 @@
+<%- include('./header.ejs') %>
+<section class="featured-blog mtb-40">
+    <div class="container">
+        <div class="row">
+            <% d.forEach((item)=>{ %>
+                <div class="col-md-4">
+                    <div class="blog-box">
+                        <img src="<%= item.image.url %>" width="400" height="400" alt="blog1" />
+                         
+                        <h3><%= item.title %></h3>
+                        <p>by <span>KY Blogs</span> on <span>October 22, 2018</span></p>
+                        <p><%= item.description.slice(0,105) %></p>
+                        <a href="/detail/<%= item._id %>" class="btn btn-danger">Read more...</a>
+                    </div>
+                </div>
+            <% }) %>
+            
+                         
+        </div>
+    </div>
+</section>
+<%- include('./footer.ejs') %>
