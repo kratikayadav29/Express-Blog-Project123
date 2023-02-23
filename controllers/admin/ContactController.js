@@ -8,7 +8,7 @@ class ContactController{
     }
     static contactinsert=async(req,res)=>{
         try{
-            console.log(req.body)
+            //console.log(req.body)
             const result=await ContactModel.create(req.body)
             res.redirect('/contact')
         }catch(err){

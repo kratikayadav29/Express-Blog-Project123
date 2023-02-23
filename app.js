@@ -53,7 +53,7 @@ app.get('/detail/:id',authentication,FrontController.detail)
 
 //AdminController
 app.get('/admin/dashboard',authentication,AdminController.dashboard)
-app.get('/register',authentication,AdminController.register)
+app.get('/register',AdminController.register)
 app.post('/register1',AdminController.register1)
 app.post('/verifylogin',AdminController.verifylogin)
 app.get('/logout',authentication,AdminController.logout)
